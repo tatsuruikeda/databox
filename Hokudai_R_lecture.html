@@ -16,7 +16,7 @@
 <li><a href="https://github.com/tatsuruikeda/databox">https://github.com/tatsuruikeda/databox</a></li>
 </ul>
 <p>緑色の「Code」ボタン -&gt; 「Download ZIP」<br />
-htmlファイル1個，データセット2個を格納．</p>
+htmlファイル1個，データセット4個を格納．</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2">
 <h1>RとRStudioのインストール</h1>
@@ -38,7 +38,7 @@ htmlファイル1個，データセット2個を格納．</p>
 <h1>パッケージのインストール</h1>
 <pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>install.packages(c(&quot;ggplot2&quot;, &quot;rpart&quot;, &quot;rpart.plot&quot;, &quot;randomForest&quot;, &quot;neuralnet&quot;, &quot;pROC&quot;))
 </span></span></foreignObject></svg></code></pre>
-<p>またはRstudioのメニューバーより（Tools &gt; Install Packages）</p>
+<p>またはRstudioのメニューバーより（Tools &gt; Install Packages &gt; 各パッケージを選択）</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4">
 <h1>線形回帰</h1>
@@ -172,6 +172,14 @@ dat1 &lt;- as.matrix(dat1)
 set.seed(1)
 km.out &lt;- kmeans(t(dat1),3)
 km.out$cluster      
+</span></span></foreignObject></svg></code></pre>
+<h2>各クラスターにおけるAUC値の箱ひげ図、ｔ検定</h2>
+<pre><code><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>data &lt;- read.csv(&quot;auc.csv&quot;)
+boxplot(data$auc ~ data$cluster)
+
+# cluster 1 and 2
+cluster1_2 &lt;- subset(data, cluster == 1 | cluster == 2 )
+t.test(auc ~ cluster, data = cluster1_2)
 </span></span></foreignObject></svg></code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12">
