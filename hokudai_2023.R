@@ -180,18 +180,6 @@ set.seed(123)
 model <- neuralnet(category ~ ., data=Train, hidden=c(2, 1), threshold=0.04, linear.output=TRUE, stepmax=1e7)
 plot(model, show.weights = FALSE, dimension=6, arrow.length = 0.1, information=TRUE, information.pos=0.1)
 
-# 混同行列　train set
-model_results_train<- predict(model, Train)
-predicted <- factor(as.numeric((model_results_train > 0.5)))
-actual <- factor(Train$category)
-confusionMatrix(predicted, actual, positive="1") 
-
-# 混同行列　test set
-model_results_test <- predict(model, Test)
-predicted <- factor(as.numeric((model_results_test > 0.5)))
-actual <- factor(Test$category)
-confusionMatrix(predicted, actual, positive="1") 
-
 #model2
 model <- neuralnet(category ~ ., data=Train, hidden=c(10, 8, 6, 4, 2), threshold=0.04, linear.output=TRUE, stepmax=1e7)
 plot(model, show.weights = FALSE, dimension=6, arrow.length = 0.1, information=TRUE, information.pos=0.1)
