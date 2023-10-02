@@ -216,24 +216,21 @@ suppressMessages(ROC_train <- roc(category ~ model_results_test, data = Test, pl
 dev.off()
 
 #　過学習　分散とバイアスのトレードオフ ==========================
-# set.seedを変更して3つの異なる散布図を生成
+# set.seedを変更して3つの異なるデータを生成
 set.seed(1)
 n <- 50
 x <- seq(0, 2 * pi, length.out = n)
 y1 <- sin(x) + rnorm(n, 0, 1)
-
 set.seed(2)
 y2 <- sin(x) + rnorm(n, 0, 1)
-
 set.seed(3)
 y3 <- sin(x) + rnorm(n, 0, 1)
-
-# 散布図を描画
+# 3つの異なるデータを一つの散布図として描画
 plot(x, y1, pch = 20, ylim = c(-1.5, 1.5), col = "black", xlab = "x", ylab = "y")
 points(x, y2, pch = 20, col = "black")
 points(x, y3, pch = 20, col = "black")
 
-# 回帰曲線の描画
+# 回帰曲線の描画　以下はp10を描画する例．p1，p2，p3は別個に指定
 for (i in 1:3) {
   set.seed(i)
   n <- 50;x <- seq(0, 2 * pi, length.out = n);y <- sin(x) + rnorm(n, 0, 1)
