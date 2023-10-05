@@ -12,4 +12,4 @@ docker pull buildandshipany/hokudai-rstudio-databox
 ```
 docker run  -e PASSWORD=<YOUR_PASS> -d -p 8787:8787 buildandshipany/hokudai-rstudio-databox:ver1 
 ```
-ウェブブラウザでhttp://localhost:8787にアクセスします．上で設定したパスワードを使います．
+ウェブブラウザで http://localhost:8787 にアクセスします．上で設定したパスワードを使います．
