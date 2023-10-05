@@ -7,9 +7,9 @@ Docker imageが使えます．以下，Dockerの使い方．
 ```
 docker pull buildandshipany/hokudai-rstudio-databox
 ```
-イメージが取得出来たらコンテナを起動します．
+イメージが取得出来たらコンテナを起動します．<YOUR_PASS>は任意のパスワードと置き換えます．
 
 ```
-docker run -d -p 8787:8787 buildandshipany/hokudai-rstudio-databox:ver1 
+docker run  -e PASSWORD=<YOUR_PASS> -d -p 8787:8787 buildandshipany/hokudai-rstudio-databox:ver1 
 ```
-ウェブブラウザでhttp://localhost:8787にアクセスします．
+ウェブブラウザでhttp://localhost:8787にアクセスします．上で設定したパスワードを使います．
